@@ -54,7 +54,7 @@ export const Sidebar = () => {
     }
 
     return (
-        <section className='relative rounded-[16px] bg-[#FFFFFF] p-[20px] w-[367px] h-[87vh] flex flex-col'>
+        <section className='relative rounded-[16px] bg-[#FFFFFF] p-[20px] w-[367px] h-[87vh] flex flex-col max-h-[1054px]'>
             <div className="flex justify-between items-center shrink-0">
                 <p className="font-extrabold text-[#072635] w-[100px] h-[33px] text-2xl">Patients</p>
                 <Image

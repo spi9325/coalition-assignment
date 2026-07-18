@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Header } from "./components/Header";
 import { Sidebar } from "./components/Sidebar";
 import "./globals.css";
@@ -23,7 +24,9 @@ export default function RootLayout({
             </div>
 
             <div className="flex-1 min-h-0 overflow-y-auto custom-scrollbar">
+              <Suspense fallback={<p>Loading...</p>}>
               {children}
+              </Suspense>
             </div>
           </section>
         </main>

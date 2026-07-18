@@ -13,7 +13,6 @@ import { Patient } from "./types/patientData";
 export default function Home() {
   const searchParams = useSearchParams()
   const selectedUser = searchParams.get("name")
-  console.log(selectedUser)
   const [data, setData] = useState<Patient>()
 
 
@@ -173,13 +172,16 @@ export default function Home() {
 
         <div className="w-[310px] h-[740px] px-2  bg-[#ffff] rounded-[16px]">
           <div className="flex justify-center items-center flex-col gap-[24px]">
-            <Image
+            {
+              data?.profile_picture &&
+              <Image
               src={data?.profile_picture!}
               alt="patient card image"
               width={200}
               height={200}
               className="mt-[30px]"
             />
+            }
 
             <p className="font-extrabold text-[24px]">{data?.name}</p>
           </div>
@@ -272,9 +274,9 @@ export default function Home() {
 
               <div className="mt-[16px] h-[240px] flex gap-5 flex-col  overflow-y-scroll custom-scrollbar px-1">
           {
-            data?.lab_results.map((cur) => (
+            data?.lab_results.map((cur,index) => (
 
-                <div className=" flex justify-between">
+                <div key={index} className=" flex justify-between">
                   <p className="overflow-hidden truncate">{cur}</p>
                   <Image
                     src={"/download.png"}
